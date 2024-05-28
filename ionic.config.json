@@ -1,0 +1,7 @@
+{
+  "name": "user-profile-card-with-social-links",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

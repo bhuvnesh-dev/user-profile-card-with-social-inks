@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      User Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content></ion-refresher>
+  <div>
+    <div *ngIf="spinner" class="cover-container">
+      <ion-skeleton-text [animated]="true" style="height: 150px; width: 100%;"></ion-skeleton-text>
+      <ion-skeleton-text [animated]="true"
+        style="height: 92px; width: 92px; margin-top: -50px; border-radius: 50px; margin-left: 20px; background-color: #cce0e0;"></ion-skeleton-text>
+      <ion-skeleton-text [animated]="true"
+        style="height: 25px; width: 150px; margin-left: 20px; border-radius: 5px; margin-top: 10px;"></ion-skeleton-text>
+      <ion-skeleton-text [animated]="true"
+        style="height: 15px; width: 230px; margin-left: 20px; border-radius: 5px; margin-top: 10px;"></ion-skeleton-text>
+      <div style=" display: flex; flex-direction: row; margin-top: 20px; margin-left: 10px;">
+        <ion-skeleton-text [animated]="true"
+          style="height: 40px; width: 40px; margin-left: 10px; border-radius: 5px;"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true"
+          style="height: 40px; width: 40px; margin-left: 10px; border-radius: 5px;"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true"
+          style="height: 40px; width: 40px; margin-left: 10px; border-radius: 5px;"></ion-skeleton-text>
+        <ion-skeleton-text [animated]="true"
+          style="height: 40px; width: 40px; margin-left: 10px; border-radius: 5px;"></ion-skeleton-text>
+      </div>
+    </div>
+    <div *ngIf="!spinner" class="cover-container">
+      <img src="https://pollcity.projectsofar.info/storage/cover-images/1682428141.A805253F-775D-465D-88DB-F7324AED3A65.jpeg"
+        class="background-image" />
+      <div class="profile">
+        <div class="candidate-details">
+          <img src="../../assets/user-icon-svgrepo-com.svg"
+            (click)="openImage('../../assets/user-icon-svgrepo-com.svg')"
+            class="candidate-image" />
+          <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: flex-start;">
+            <div style="display: flex; flex-direction: column;">
+              <ion-label class="name">Giorgio Mammoliti</ion-label>
+              <a style="text-decoration:none" href="mailto:{{data.email}}"> <ion-label
+                  class="details">info@giorgiointo.com</ion-label></a>
+            </div>
+          </div>
+          <ion-row>
+            <div *ngFor="let item of social_buttons; let index=index">
+              <div class="social-buttons">
+                <img src={{item.image}} (click)="goto(item.link)" />
+              </div>
+            </div>
+          </ion-row>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-modal [isOpen]="showImage" class="full-image" [animated]="true"  >
+  <ng-template>
+    <ion-content>
+      <ion-buttons class="close-icon" (click)="closeModal()">
+        <ion-icon name="close" />
+      </ion-buttons>
+      <pinch-zoom>
+        <div class="container">
+          <ion-img class="image" (pinch)="handlePinch($event)"
+            src="https://pollcity.projectsofar.info/storage/user-images/1683036390.giorgio.jpg" />
+          </div>
+        </pinch-zoom>
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -1,0 +1,117 @@
+ion-content {
+  .cover-container {
+    border-radius: 10px;
+    margin: 16px;
+    box-shadow: 0px 4px 40px rgba(0, 166, 231, 0.11);
+    padding-bottom: 20px;
+    .background-image {
+      border-radius: 10px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .profile {
+    padding-top: 20px;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-top: -75px;
+    .candidate-details {
+      display: flex;
+      flex-direction: column;
+      .candidate-image {
+        height: 92px;
+        width: 92px;
+        border-radius: 92px;
+        object-fit: cover;
+        border: 3px solid #ffffff;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+      }
+      .name {
+        font-size: 16px;
+        line-height: 20px;
+        font-family: DmSans-Bold;
+        color: #000000;
+        text-transform: capitalize;
+        margin-top: 10px;
+      }
+      .details {
+        font-size: 14px;
+        line-height: 18px;
+        font-family: DmSans-Regular;
+        color: #454545;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      .social-buttons {
+        display: flex;
+        margin-right: 10px;
+        margin-top: 20px;
+        background-color: #f6f6f6;
+        padding: 10px;
+        border-radius: 10px;
+        align-items: center;
+      }
+    }
+  }
+  .spinner {
+    position: absolute;
+    backdrop-filter: blur(5px);
+    z-index: 9999999999;
+    display: flex;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    justify-content: center;
+    align-items: center;
+    ion-spinner {
+      --color: #bd000f;
+    }
+  }
+}
+ion-modal {
+  ion-content {
+    display: flex;
+    --background:#000000;
+    height: 100%;
+    .close-icon {
+      position: absolute;
+      height: 26px;
+      right: 10px;
+      top: 60px;
+      font-size: 20px;
+      padding: 3px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 20px;
+      color: black;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999999999;
+    }
+    pinch-zoom {
+      display: flex;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  
+      .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #000000;
+  
+        ion-img {
+          width: 100%;
+          height: auto;
+          transform: scale(zoomFactor);
+          transform-origin: top left;
+        }
+      }
+    }
+  }
+}
